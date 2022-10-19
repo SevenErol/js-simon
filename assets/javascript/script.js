@@ -17,12 +17,7 @@ let counter = 0;
 
 let startNumber = 30;
 
-function generateRandomNumbers(min, max) {
-
-    return Math.floor(Math.random() * (max - min + 1) + min);
-
-}
-
+const generateRandomNumbers = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 function generateBoxes() {
 
