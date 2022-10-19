@@ -132,6 +132,8 @@ function chronometer() {
 
         setTimeout(questions, 2000);
 
+        startNumber = 30;
+
     }
 
 }
@@ -140,6 +142,12 @@ function chronometer() {
 startButton.addEventListener("click", function () {
 
     numberDisplay.innerHTML = "";
+
+    text.innerHTML = "";
+
+    timer.innerHTML = "";
+
+    let startNumber = 30;
 
     generateBoxes();
 

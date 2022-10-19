@@ -8,6 +8,7 @@
     width: 80%;
     margin: auto;
     text-align: center;
+    padding: 2rem;
 }
 
 .number_displayed {
@@ -23,4 +24,11 @@
     width: calc(100% / 5);
     padding: 1rem;
     aspect-ratio: 1 / 1;
+}
+
+button,
+.number_displayed,
+.timer,
+.text {
+    margin-bottom: 2rem;
 }
