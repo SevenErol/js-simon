@@ -136,13 +136,15 @@ function chronometer() {
 
 startButton.addEventListener("click", function () {
 
+    clearInterval(countDown);
+
     numberDisplay.innerHTML = "";
 
     text.innerHTML = "";
 
     timer.innerHTML = "";
 
-    let startNumber = 30;
+    startNumber = 30;
 
     generateBoxes();
 
