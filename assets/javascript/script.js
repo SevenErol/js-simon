@@ -7,7 +7,7 @@ const timer = document.querySelector(".timer");
 
 const text = document.querySelector(".text");
 
-let startNumber = 30;
+let countDown;
 
 const randomList = [];
 
@@ -15,7 +15,7 @@ const userAnswer = [];
 
 let counter = 0;
 
-let countDown;
+let startNumber = 30;
 
 function generateRandomNumbers(min, max) {
 
@@ -49,7 +49,9 @@ function cleanBoxes() {
 
     for (let i = 0; i < 5; i++) {
 
-        boxesList[i].innerHTML = "";
+        const oneBox = boxesList[i];
+
+        oneBox.innerHTML = "";
 
     }
 
@@ -59,10 +61,60 @@ function questions() {
 
     for (let i = 0; i < 5; i++) {
 
-        const asking = Number(prompt(`Qual'era il numero nella posizione ${i}?`))
+        const asking = Number(prompt(`Qual'era il numero nella posizione ${i + 1}?`))
 
         userAnswer.push(asking);
 
+    }
+
+    for (let i = 0; i < userAnswer.length; i++) {
+
+        if (randomList[i] === userAnswer[i]) {
+
+            counter++
+
+        }
+    }
+
+    switch (counter) {
+
+        case 1:
+
+            text.innerHTML = "Hai indovinato un solo numero!";
+
+            break;
+
+        case 2:
+
+            text.innerHTML = "Hai indovinato due numeri!";
+
+            break;
+
+        case 3:
+
+            text.innerHTML = "Hai indovinato tre numeri!";
+
+            break;
+
+        case 4:
+
+            text.innerHTML = "Hai indovinato quattro numeri!";
+
+            break;
+
+        case 5:
+
+            text.innerHTML = "Hai indovinato tutti e cinque i numeri!";
+
+            break;
+
+
+        default:
+
+
+            text.innerHTML = "Non hai indovinato nessun numero riprova!";
+
+            break;
     }
 }
 
@@ -72,69 +124,22 @@ function chronometer() {
 
     timer.innerHTML = startNumber;
 
-    if (startNumber < 0) {
-
-        clearInterval(countDown);
+    if (startNumber === 0) {
 
         cleanBoxes();
 
-        questions();
+        clearInterval(countDown);
 
-        for (let i = 0; i < userAnswer.length; i++) {
+        setTimeout(questions, 2000);
 
-            if (randomList[i] === userAnswer[i]) {
-
-                counter++
-
-            }
-        }
-
-        switch (counter) {
-
-            case 1:
-
-                text.innerHTML = "Hai indovinato un solo numero!";
-
-                break;
-
-            case 2:
-
-                text.innerHTML = "Hai indovinato due numeri!";
-
-                break;
-
-            case 3:
-
-                text.innerHTML = "Hai indovinato tre numeri!";
-
-                break;
-
-            case 4:
-
-                text.innerHTML = "Hai indovinato quattro numeri!";
-
-                break;
-
-            case 5:
-
-                text.innerHTML = "Hai indovinato tutti e cinque i numeri!";
-
-                break;
-
-
-            default:
-
-
-                text.innerHTML = "Non hai indovinato nessun numero riprova!";
-
-                break;
-        }
     }
 
 }
 
 
 startButton.addEventListener("click", function () {
+
+    numberDisplay.innerHTML = "";
 
     generateBoxes();
 
