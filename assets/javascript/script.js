@@ -9,11 +9,11 @@ const text = document.querySelector(".text");
 
 let countDown;
 
-const randomList = [];
-
-const userAnswer = [];
-
 let counter = 0;
+
+let randomList;
+
+let userAnswer;
 
 let startNumber = 30;
 
@@ -111,6 +111,10 @@ function questions() {
 
             break;
     }
+
+    console.log(userAnswer);
+
+    console.log(randomList);
 }
 
 function chronometer() {
@@ -143,6 +147,10 @@ startButton.addEventListener("click", function () {
     text.innerHTML = "";
 
     timer.innerHTML = "";
+
+    randomList = [];
+
+    userAnswer = [];
 
     startNumber = 30;
 
